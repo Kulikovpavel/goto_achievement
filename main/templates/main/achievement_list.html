@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ achievement }}{% endblock title %}
+
+{% block content %}
+
+    <h4>Наши ачивки</h4>
+    <ul>
+    {% for achievement in achievement_list %}
+        <li>
+            <a href="{{ achievement.get_absolute_url }}">
+                {% if achievement.image %}<img src="{{ achievement.image.url }}" alt="{{ achievement }}">{% endif %}
+                {{ achievement.title }} - {{ achievement.description }}
+            </a>
+        </li>
+    {% endfor %}
+
+{% endblock content %}

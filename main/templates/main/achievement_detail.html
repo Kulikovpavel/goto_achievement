@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ achievement }}{% endblock title %}
+
+{% block content %}
+    <h4>{{ achievement }}</h4>
+    {% if achievement.image %}<img src="{{ achievement.image.url }}" alt="{{ achievement }}">{% endif %}
+    {{ achievement.description }}
+    <p>Список получивших</p>
+    <ul>
+        {% for record in achievement.records.all %}
+            <li><a href="{{ record.student.get_absolute_url }}">{{ record.student }} {{ record.date|date }} {{ record.comment }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
