@@ -8,7 +8,7 @@
                 {% for record in records %}
                     <div class="col-md-2">
                         <div class="thumbnail">
-                          <img src="{{ record.achievement.image.url }}">
+                          <img src="{{ record.achievement.image.url }}" width='256px'>
                           <div class="caption">
                             <h4><a href="{{ record.achievement.get_absolute_url }}">{{ record.achievement.title }}</a></h4>
                             <i><strong>Получатель:</strong> <a href="{{ record.student.get_absolute_url }}">{{ record.student.fullname }}</a></i>
