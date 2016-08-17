@@ -17,6 +17,9 @@
                             </div>
                         </div>
                       </div>
+{% if forloop.counter|divisibleby:6 %}
+                                <hr style="clear:both;" />
+                        {% endif %}
 
     {% endfor %}
 
