@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ student }}{% endblock title %}
+
+{% block content %}
+
+<h3 class="text-center">Участники</h3>
+    {% for student in student_list %}
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                          {% if student.photo %}<img src="{{ student.photo.url }}" alt="{{ student }}">
+                          {% else %}
+                            <img src="http://files.gamebanana.com/img/ico/sprays/superman_flying1.png" title="Superman">
+                          {% endif %}
+                          <div class="caption">
+                            <h4><a href="{{ student.get_absolute_url }}">{{ student.fullname }}</a></h4>
+                            </div>
+                        </div>
+                      </div>
+
+    {% endfor %}
+
+{% endblock content %}

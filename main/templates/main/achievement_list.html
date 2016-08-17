@@ -4,15 +4,17 @@
 
 {% block content %}
 
-    <h4>Наши ачивки</h4>
-    <ul>
+    <h3 class="text-center">Достижения</h3>
     {% for achievement in achievement_list %}
-        <li>
-            <a href="{{ achievement.get_absolute_url }}">
-                {% if achievement.image %}<img src="{{ achievement.image.url }}" alt="{{ achievement }}">{% endif %}
-                {{ achievement.title }} - {{ achievement.description }}
-            </a>
-        </li>
+        <div class="col-md-2">
+                        <div class="thumbnail">
+                          <img src="{{ achievement.image.url }}">
+                          <div class="caption">
+                            <h4><a href="{{ achievement.get_absolute_url }}">{{ achievement.title }}</a></h4>
+                            <p>{{ achievement.description }}</p>
+                            </div>
+                        </div>
+                      </div>
     {% endfor %}
 
 {% endblock content %}

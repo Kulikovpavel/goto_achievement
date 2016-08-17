@@ -9,6 +9,9 @@ class StudentView(DetailView):
     model = Student
     context_object_name = "student"
 
+class StudentListView(ListView):
+    model = Student
+    context_object_name = "student_list"
 
 class AchievementView(DetailView):
     model = Achievement

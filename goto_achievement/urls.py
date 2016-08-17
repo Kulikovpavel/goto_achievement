@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from goto_achievement import settings
-from main.views import StudentView, AchievementView, index_view, AchievementListView
+from main.views import StudentView, AchievementView, index_view, AchievementListView, StudentListView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index_view, name='index'),
+    url(r'^students/$', StudentListView.as_view(), name='student_list'),
     url(r'^students/(?P<pk>[0-9]+)/$', StudentView.as_view(), name='student'),
     url(r'^achievements/$', AchievementListView.as_view(), name='achievement_list'),
     url(r'^achievements/(?P<pk>[0-9]+)/$', AchievementView.as_view(), name='achievement'),

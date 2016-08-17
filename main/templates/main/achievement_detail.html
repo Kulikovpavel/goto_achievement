@@ -3,13 +3,33 @@
 {% block title %}{{ achievement }}{% endblock title %}
 
 {% block content %}
-    <h4>{{ achievement }}</h4>
-    {% if achievement.image %}<img src="{{ achievement.image.url }}" alt="{{ achievement }}">{% endif %}
-    {{ achievement.description }}
-    <p>Список получивших</p>
+    <h3 class="text-center">{{ achievement }}</h3>
+    <div class="media" style="background-color: white; padding: 20px;">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object" height="150px" src="{{ achievement.image.url }}">
+        </a>
+      </div>
+      <div class="media-body" style="padding: 20px;">
+        <h4 class="media-heading">{{ achievement.title}}</h4>
+        <p>{{ achievement.description }}</p>
+      </div>
+    </div>
+
+    <h3 class="text-center">Список получивших</h3>
     <ul>
         {% for record in achievement.records.all %}
-            <li><a href="{{ record.student.get_absolute_url }}">{{ record.student }} {{ record.date|date }} {{ record.comment }}</a></li>
+            <div class="col-md-2">
+                        <div class="thumbnail">
+                          {% if student.photo %}<img src="{{ record.student.photo.url }}" alt="{{ student }}">
+                          {% else %}
+                            <img src="http://files.gamebanana.com/img/ico/sprays/superman_flying1.png" title="Superman">
+                          {% endif %}
+                          <div class="caption">
+                            <h4><a href="{{ record.student.get_absolute_url }}">{{ record.student.fullname }}</a></h4>
+                            </div>
+                        </div>
+                      </div>
         {% endfor %}
     </ul>
 {% endblock content %}

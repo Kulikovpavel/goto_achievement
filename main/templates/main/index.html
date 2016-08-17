@@ -3,27 +3,39 @@
 {% block title %}Главная{% endblock title %}
 
 {% block content %}
-    <h4></h4>
-    <ol>
-        {% for student in students %}
-            <li>
-                <a href="{{ student.get_absolute_url }}">
-                    {% if student.photo %}<img src="{{ student.photo.url }}" alt="{{ student }}" width="50px">{% endif %}
-                    {{ student.lastname }} {{ student.firstname }}
-                </a>
-
-                {% for r in student.records.all %}
-                    <a href="{{ r.achievement.get_absolute_url }}">
-                        <img src="{{ r.achievement.image.url }}" alt="{{ r.achievement.title }}" width="50px">
-                    </a>
+    <div class="row">
+            <h3 class="text-center">Лента</h3>
+                {% for record in records %}
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                          <img src="{{ record.achievement.image.url }}">
+                          <div class="caption">
+                            <h4><a href="{{ record.achievement.get_absolute_url }}">{{ record.achievement.title }}</a></h4>
+                            <i><strong>Получатель:</strong> <a href="{{ record.student.get_absolute_url }}">{{ record.student.fullname }}</a></i>
+                            <p>{{ record.achievement.description }}</p>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                          <img src="{{ record.achievement.image.url }}">
+                          <div class="caption">
+                            <h4>{{ record.achievement.title }}</h4>
+                            <i><strong>Получатель:</strong> <a href="{{ record.student.get_absolute_url }}">{{ record.student.fullname }}</a></i>
+                            <p>{{ record.achievement.description }}</p>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                          <img src="{{ record.achievement.image.url }}">
+                          <div class="caption">
+                            <h4>{{ record.achievement.title }}</h4>
+                            <i><strong>Получатель:</strong> {{ record.student.fullname }}</i>
+                            <p>{{ record.achievement.description }}</p>
+                            </div>
+                        </div>
+                      </div>
                 {% endfor %}
-            </li>
-        {% endfor %}
-    </ol>
-    <p>Список ачивок</p>
-    <ul>
-        {% for record in records %}
-            <li><a href="{% url 'achievement' record.achievement.id %}">{{ record }}</a></li>
-        {% endfor %}
-    </ul>
+    </div>
 {% endblock content %}
