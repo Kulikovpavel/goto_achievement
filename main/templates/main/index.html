@@ -16,26 +16,6 @@
                             </div>
                         </div>
                       </div>
-                    <div class="col-md-2">
-                        <div class="thumbnail">
-                          <img src="{{ record.achievement.image.url }}">
-                          <div class="caption">
-                            <h4>{{ record.achievement.title }}</h4>
-                            <i><strong>Получатель:</strong> <a href="{{ record.student.get_absolute_url }}">{{ record.student.fullname }}</a></i>
-                            <p>{{ record.achievement.description }}</p>
-                            </div>
-                        </div>
-                      </div>
-                    <div class="col-md-2">
-                        <div class="thumbnail">
-                          <img src="{{ record.achievement.image.url }}">
-                          <div class="caption">
-                            <h4>{{ record.achievement.title }}</h4>
-                            <i><strong>Получатель:</strong> {{ record.student.fullname }}</i>
-                            <p>{{ record.achievement.description }}</p>
-                            </div>
-                        </div>
-                      </div>
                 {% endfor %}
     </div>
 {% endblock content %}

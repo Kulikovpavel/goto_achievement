@@ -9,7 +9,7 @@
                         <div class="thumbnail">
                           <img src="{{ record.achievement.image.url }}">
                           <div class="caption">
-                            <h4>{{ record.achievement.title }}</h4>
+                            <h4><a href="{{ record.achievement.get_absolute_url }}">{{ record.achievement.title }}</a></h4>
                             <p>{{ record.achievement.description }}</p>
                             </div>
                         </div>
