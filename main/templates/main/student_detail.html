@@ -4,6 +4,11 @@
 
 {% block content %}
     <h3 class="text-center">{{ student.firstname }} {{ student.lastname }}</h3>
+        {% if student.photo %}
+            <img src="{{ student.photo.url }}" alt="{{ student }}" max-width='300px'>
+        {% else %}
+            <img src="http://files.gamebanana.com/img/ico/sprays/superman_flying1.png" title="Superman">
+        {% endif %}
         {% for record in student.records.all %}
             <div class="col-md-2">
                         <div class="thumbnail">
