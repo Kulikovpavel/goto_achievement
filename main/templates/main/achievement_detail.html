@@ -21,7 +21,7 @@
         {% for record in achievement.records.all %}
             <div class="col-md-2">
                         <div class="thumbnail">
-                          {% if student.photo %}<img src="{{ record.student.photo.url }}" alt="{{ student }}">
+                          {% if record.student.photo %}<img src="{{ record.student.photo.url }}" alt="{{ record.student }}">
                           {% else %}
                             <img src="http://files.gamebanana.com/img/ico/sprays/superman_flying1.png" title="Superman">
                           {% endif %}
